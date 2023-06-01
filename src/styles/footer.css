@@ -1,0 +1,19 @@
+.footer {
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-top: 8%;
+  }
+.footer p{
+    color:rgb(195, 195, 195)
+}
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .name {
+    font-weight: bold;
+  }
+  

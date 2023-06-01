@@ -1,0 +1,38 @@
+@keyframes slideInFromLeft{
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes colorTransition{
+    from {
+        color: black;
+    }
+    to{
+        color: rgb(220, 220, 220)e;
+        
+    }
+}
+
+#personal_statement{
+    margin-top: 160px;
+    animation: 1.5s colorTransition;;
+    margin-left: 2%;
+    font-size: 34px;
+    text-align: left;
+    margin-bottom: 180px;
+  }
+
+#Intro{
+    animation: 1.25s ease-out 0s 1 slideInFromLeft;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 25%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    border-bottom: solid;
+    border-color: rgb(198, 198, 198);
+    scroll-margin-top: 100px;
+}

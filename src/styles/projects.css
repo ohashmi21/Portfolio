@@ -1,0 +1,42 @@
+#projects{
+    padding-left: 0px;
+    display:flex;
+    margin-left: 33.3%;
+    margin-right: 25%;
+    list-style: none;
+    justify-content: space-between;
+}
+
+#projects li{
+    margin-right: 5px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+#projectImg{
+    background-color: white;
+    margin-left: 12%;
+    width: 50%;
+    height: 50%;
+    object-fit: contain;
+}
+
+#projectWindow{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+#projectText{
+    display: flex;
+    flex-direction: column;
+}
+
+#ProjectsContainer{
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-bottom: 75px;
+    border-bottom: solid;
+    border-color: rgb(198, 198, 198);
+    scroll-margin-top: 100px;
+}

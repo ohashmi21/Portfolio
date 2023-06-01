@@ -1,0 +1,38 @@
+#aboutContainer{
+    margin-left: 5%;
+    margin-right: 5%;
+    align-items: center;
+    border-bottom: solid;
+    border-color: rgb(198, 198, 198);
+    scroll-margin-top: 110px;
+}
+
+
+
+.aboutParagraph{
+    margin-top: 100px;
+    padding-left: 20%;
+    padding-right: 20%;
+    text-align: left;
+    font-size: 1.8em;
+    margin-bottom: 100px;
+}
+
+.hidden {
+    opacity: 0;
+    transition: all 1s;
+}
+
+.show{
+    opacity: 1;
+    transition: all 1s;
+}
+
+.paragraphhidden{
+    opacity: 0;
+    transition: all 1s;
+}
+.paragraphshow{
+    opacity: 1;
+    transition: all 3s;
+}
