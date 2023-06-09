@@ -1,37 +1,52 @@
+// React Component
 import React, { useState } from 'react';
 import Image from 'next/image';
-import placeholder from './placeholder.png';
+import naymahHashmi from '@/images/naymahHashmi.com.png';
+import portfolio from '@/images/portfolio.png';
+import sneakerAlert from '@/images/sneakerAlert.png';
 
 interface ProjectData {
   [key: string]: {
     title: string;
     skills: string;
     description: string;
+    pic: typeof Image;
   };
 }
 
 function Projects(): JSX.Element {
-  const [selectedItem, setSelectedItem] = useState<string | null>("Portfolio");
+  const [selectedItem, setSelectedItem] = useState<string>('Portfolio');
+  const [isEntering, setIsEntering] = useState<boolean>(false);
 
   const handleItemClick = (item: string): void => {
-    setSelectedItem(item)
+    if (selectedItem!=item){
+        setIsEntering(true);
+    setTimeout(() => {
+      setSelectedItem(item);
+      setIsEntering(false);
+    }, 500);
+    }
+    
   };
 
   const projectData: ProjectData = {
     Portfolio: {
       title: 'Portfolio',
-      skills: 'Skills Used: Skill 1, Skill 2',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      skills: 'Skills Used: React.js, Next.js, HTML, CSS, Typescipt',
+      description: 'Personal portfolio built in Next.js and React.js. Valuable experience providing necessary practice using react along with components. Deployable now, but would like to make full stack in order to update content easily using an admin site.',
+      pic: portfolio,
     },
     SneakerAlert: {
       title: 'SneakerAlert',
-      skills: 'Skills Used: Skill 3, Skill 4',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      skills: 'Skills Used: Python, Tweepy',
+      description: 'Twiter bot that went through specific twitter accounts to gather data about shoe releases. Stores that information in a csv file, using the pandas library, and the day before the shoe releases, tweets an alert stating that the shoe is going to release. Ran for 2 weeks (4 releases) and reached an audiece of 90 people. Learned data gathering and analysis, along with getting experience with the twitter api.',
+      pic: sneakerAlert,
     },
     'NaymahHashmi.com': {
-      title: 'NaymahHashmi.com',
-      skills: 'Skills Used: Skill 5, Skill 6',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+      title: 'NaymahHashmi.com (In progress)',
+      skills: 'Skills Used: Vue, Typescript, MongoDB, HTML, CSS, Jira, GitHub',
+      description: 'Re-designing and developing the portfolio website for an architect. With a few people working on the project, we decided to use agile methodologies, specifically Jira to be able to complete our work efficiently. The website itself will be full stack, using MongoDB as our data. There will be an admin site, with authentication and security, to allow easy modifcations of the website. So far, I have learned and am comfortable with agile methodologies, along with github for code editing. ',
+      pic: naymahHashmi,
     },
   };
 
@@ -61,13 +76,16 @@ function Projects(): JSX.Element {
         </li>
       </ul>
       {selectedItem && (
-        <div id="projectWindow">
+        <div
+          id="projectWindow"
+          className={`transition ${isEntering ? 'transition-enter' : 'transition-exit'}`}
+        >
           <div id="projectText">
             <h2 id="projectTitle">{projectData[selectedItem].title}</h2>
             <h3 id="projectSkills">{projectData[selectedItem].skills}</h3>
             <p id="projectDescription">{projectData[selectedItem].description}</p>
           </div>
-          <Image id="projectImg" alt="placeholder" src={placeholder} />
+          <Image id="projectImg" alt="placeholder" src={projectData[selectedItem].pic} />
         </div>
       )}
     </div>
