@@ -43,7 +43,7 @@ function Projects(): JSX.Element {
       pic: sneakerAlert,
     },
     'NaymahHashmi.com': {
-      title: 'NaymahHashmi.com (In progress)',
+      title: 'NaymahHashmi.com v2 (In progress)',
       skills: 'Skills Used: Vue, Typescript, MongoDB, HTML, CSS, Jira, GitHub',
       description: 'Re-designing and developing the portfolio website for an architect. With a few people working on the project, we decided to use agile methodologies, specifically Jira to be able to complete our work efficiently. The website itself will be full stack, using MongoDB as our data. There will be an admin site, with authentication and security, to allow easy modifcations of the website. So far, I have learned and am comfortable with agile methodologies, along with github for code editing. ',
       pic: naymahHashmi,
@@ -65,14 +65,15 @@ function Projects(): JSX.Element {
         <li
           onClick={() => handleItemClick('SneakerAlert')}
           className={selectedItem === 'SneakerAlert' ? 'selected' : ''}
-        >
+        ><span>
           SneakerAlert
+          </span>
         </li>
         <li
           onClick={() => handleItemClick('NaymahHashmi.com')}
           className={selectedItem === 'NaymahHashmi.com' ? 'selected' : ''}
         >
-          NaymahHashmi.com
+          NaymahHashmi.com v2
         </li>
       </ul>
       {selectedItem && (
