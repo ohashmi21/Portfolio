@@ -16,7 +16,7 @@ export default function Contact() {
           <Image className="resumeimg" alt="resume image" src={resume} />
           <a href="Omair_Hashmi_Resume.pdf" className="resume" download="Omair_Hashmi_Resume.pdf">Resume</a>
         </div>
+        </div>
       </div>
-    </div>
   );
 }
