@@ -10,7 +10,7 @@ export default function Contact() {
       <div className="linksgrid">
         <div className="linksflex">
           <Image className="linkedinimg" alt="LinkedIn Image" src={linkedin} />
-          <a href="https:/www.linkedin.com/in/omair-hashmi-33310619a" className="linkedin" target="_blank" rel="noopener noreferrer">Linkedin</a>
+          <a href="https://www.linkedin.com/in/omair-hashmi/" className="linkedin" target="_blank" rel="noopener noreferrer">Linkedin</a>
         </div>
         <div className="linksflex">
           <Image className="resumeimg" alt="resume image" src={resume} />
