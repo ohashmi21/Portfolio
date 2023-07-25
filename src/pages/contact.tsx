@@ -16,10 +16,6 @@ export default function Contact() {
           <Image className="resumeimg" alt="resume image" src={resume} />
           <a href="Omair_Hashmi_Resume.pdf" className="resume" download="Omair_Hashmi_Resume.pdf">Resume</a>
         </div>
-        <div className="linksflex">
-          <Image className="githubimg" alt="Github image" src={github} />
-          <a href="https://github.com/ohashmi21" target="_blank" className="github" rel="noopener noreferrer">Github</a>
-        </div>
       </div>
     </div>
   );
