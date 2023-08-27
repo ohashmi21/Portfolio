@@ -1,4 +1,4 @@
-#aboutContainer{
+.aboutContainer{
     margin-left: 5%;
     margin-right: 5%;
     align-items: center;
@@ -35,4 +35,25 @@
 .paragraphshow{
     opacity: 1;
     transition: all 3s;
+}
+
+@media screen and (max-width:1078px){
+        .hidden {
+            opacity: 1;
+            transition: all 1s;
+        }
+        
+        .show{
+            opacity: 1;
+            transition: all 1s;
+        }
+        
+        .paragraphhidden{
+            opacity: 1;
+            transition: all 1s;
+        }
+        .paragraphshow{
+            opacity: 1;
+            transition: all 3s;
+        }
 }

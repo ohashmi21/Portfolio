@@ -83,7 +83,7 @@ function Projects(): JSX.Element {
           id="projectWindow"
           className={`transition ${isEntering ? 'transition-enter' : 'transition-exit'}`}
         >
-          <div id="projectText">
+          <div className='projectText'>
             <h2 id="projectTitle">{projectData[selectedItem].title}</h2>
             <h3 id="projectSkills">{projectData[selectedItem].skills}</h3>
             <p id="projectDescription">{projectData[selectedItem].description}</p>

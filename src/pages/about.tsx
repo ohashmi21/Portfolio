@@ -13,7 +13,7 @@ function About() {
 
   return (
     <div>
-      <div id="aboutContainer">
+      <div className="aboutContainer">
         <div ref={myRef}>
         <div className={`${isVisible ? 'show' : 'hidden'}`} ref={aboutRef}><p className="sectionHeader">About</p></div>
         </div>
