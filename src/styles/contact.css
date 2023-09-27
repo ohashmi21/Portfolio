@@ -6,12 +6,13 @@
   }
 .linksgrid{
     display: grid;
-    grid-template-columns: 200px 200px 200px;
+    grid-template-columns: 100px 100px 100px;
     justify-content: center;
-    column-gap: 40px;
+    column-gap: 150px;
 }
 
 .linkedin{
+    text-align: center;
     color: rgb(255, 255, 255);
     background-color: rgb(10,102,194);
     border-radius: 20px;
@@ -81,6 +82,8 @@
     height: 80px;
 }
 .github{
+    width: 78px;
+    text-align: center;
     color:white;
     background-color:rgb(35,134,54);
     border-radius: 20px;
@@ -97,4 +100,12 @@
 }
 .github:hover{
     background-color: rgb(25, 95, 39);
+}
+
+
+
+@media screen and (max-width:770px){
+    .linksgrid{
+        column-gap: 5%;
+    }
 }

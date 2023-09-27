@@ -5,8 +5,8 @@ import github from "@/images/github.png";
 
 export default function Contact() {
   return (
-    <div>
-      <p className="sectionHeader" id="contactContainer">Contact</p>
+    <div id="contactContainer">
+      <p className="sectionHeader" >Contact</p>
       <div className="linksgrid">
         <div className="linksflex">
           <Image className="linkedinimg" alt="LinkedIn Image" src={linkedin} />
@@ -18,7 +18,7 @@ export default function Contact() {
         </div>
         <div className="linksflex"> 
           <Image className="githubimg" alt="Github image" src={github} /> 
-          <a href="https://github.com/ohashmi21" target="_blank" className="github" rel="noopener noreferrer">Githubs</a>
+          <a href="https://github.com/ohashmi21" target="_blank" className="github" rel="noopener noreferrer">Github</a>
         </div>
         </div>
       </div>

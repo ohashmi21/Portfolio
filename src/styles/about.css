@@ -7,7 +7,11 @@
     scroll-margin-top: 110px;
 }
 
-
+#sectionHeader{
+    text-align: center;
+    margin-top: 25px;
+    font-size: 25px;
+  }
 
 .aboutParagraph{
     margin-top: 100px;
@@ -56,4 +60,22 @@
             opacity: 1;
             transition: all 3s;
         }
+}
+
+@media screen and (max-width:770px){
+    .aboutContainer{
+        font-size: 0.7em;
+        margin-left: 1%;
+
+    }
+    .aboutParagraph{
+        text-align: center;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-top: 50px;
+    }
+    #optionalText{
+        opacity: 0;
+    }
+
 }

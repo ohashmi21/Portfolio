@@ -1,9 +1,14 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
 html{
   scroll-behavior: smooth;
 }
 body{
   background-color: black;
   color: rgb(219, 219, 219);
+  width: 100%;
 }
 p{
   color: rgb(219, 219, 219);
@@ -11,6 +16,8 @@ p{
 nav{
   color:rgb(220, 220, 220);
   margin-right: 20px;
+  z-index: 100;
+
 }
 nav ul{
   list-style: none;
@@ -47,3 +54,9 @@ nav a:visited { text-decoration: none; color: rgb(220, 220, 220)}
 nav a:hover { text-decoration: none;}
 nav a:focus { text-decoration: none;}
 nav a:hover, a:active { text-decoration: none;}
+
+@media screen and (max-width:770px){
+  #Header{
+    font-size: 1.2em;
+  }
+}

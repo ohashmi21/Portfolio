@@ -13,17 +13,16 @@ function About() {
 
   return (
     <div>
-      <div className="aboutContainer">
+      <div className="aboutContainer" id="about">
         <div ref={myRef}>
-        <div className={`${isVisible ? 'show' : 'hidden'}`} ref={aboutRef}><p className="sectionHeader">About</p></div>
+        <div className={`${isVisible ? 'show' : 'hidden'}`} ref={aboutRef}><p id="sectionHeader">About</p></div>
         </div>
         <div className={`${about ? 'paragraphshow' : 'paragraphhidden'}`}>
-          <p className="aboutParagraph">I am Omair Hashmi, a sophomore computer scince student at Wayne State University. Exprienced in 
-            Python, C++, Javascript, Typescript, HTML, and CSS, along with the Flask, React, Vue, and Next frameworks. With no
-            specialization yet, I am open to all internship oppotunities for experience and exposure. <br></br> <br></br>
-            When not coding or watching ASMR coding tutorials, I love to play basketball and plan my next trip 
-            with my friends. I like to stay informed of the newest technologies and love to see see how software solutions
-            are being used in creative ways, and want to be one of the first to learn and use these solutions.
+          <p className="aboutParagraph " id='paragraph'>I am Omair Hashmi, a Junior computer science student at Wayne State University. Currently gaining valuable experience working a technical coop position with Denso International. Comfortable with a wide range of programming languages, including Python, C++, Javascript, Typescript, HTML, and CSS. I am also well-versed in popular frameworks such as Flask, React, Vue, and Next. Eager to explore all internship opportunities that can further expand my skills and offer meaningful work experiences, particularly software development or cybersecurity.
+          <br></br>
+          <br></br>
+
+<span id="optionalText">Beyond my passion for coding, I have a deep love for basketball and enjoy planning exciting trips with friends. Staying abreast of the latest technological advancements is a personal interest of mine, and I find great inspiration in discovering how software solutions are creatively applied in various domains. I aspire to be at the forefront of this ever-evolving field, eagerly seeking opportunities to learn and contribute to innovative solutions.</span>
           </p>
         </div>
       </div>
