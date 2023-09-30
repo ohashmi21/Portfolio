@@ -50,7 +50,7 @@
   }
   .modal-text p{
     text-align: center;
-    font-size: 1.6em;
+    font-size: 2vw;
     height: 100%;
   } 
 
@@ -113,4 +113,12 @@
       margin-left: 2.5%;
       padding-top: 5px;
     }
+
+}
+
+
+@media screen and (max-width:1021px){
+  .modal-text p{
+    font-size: 1.9vh;
+  }
 }
