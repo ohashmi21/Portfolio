@@ -4,11 +4,11 @@ import { useInView } from "react-intersection-observer";
 function About() {
   const { ref: myRef, inView: isVisible} = useInView({
     threshold: .25,
-    rootMargin: '200px 0px -200px 0px',
+    rootMargin: '55% 0px -50% 0px',
   });
   const { ref: aboutRef, inView: about } = useInView({
     threshold: .25,
-    rootMargin: '200px 0px -200px 0px',
+    rootMargin: '55% 0px -50% 0px',
   });
 
   return (

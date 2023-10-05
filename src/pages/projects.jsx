@@ -9,6 +9,7 @@ import Image from 'next/image';
 import naymahHashmi from '@/images/naymahHashmi.com.png';
 import portfolio from '@/images/portfolio.png'
 import sneakerAlert from '@/images/sneakerAlert.png'
+import studybetter from '@/images/studybetter.png'
 import { motion, AnimatePresence } from 'framer-motion';
 import Modal from '@/projectsComponents/modal/index.jsx';
 function MySwiperComponent() {
@@ -69,11 +70,18 @@ function MySwiperComponent() {
       Image: portfolio,
     },
     {
+      name:"StudyBetter.",
+      description: "Working on ”Study Better,” a web application built in Vue, aimed at enhancing study productivity and implementing effective studying techniques for students. The application has a a Pomodoro timer and spaced break timer to optimize study sessions and facilitate strategic breaks, improving focus and learning retention. Future developments includes todo-list, powerpoint navigator with a built in blurt technique using either manually scribed notes for the slide, or speech recognition. ",
+      skills:"Vue, Typescript, HTML, CSS, GitHub",
+      Image: studybetter,
+    },
+    {
       name: "Sneaker Alert",
       description: "Twiter bot that went through specific twitter accounts to gather data about shoe releases. Stores that information in a csv file, using the pandas library, and the day before the shoe releases, tweets an alert stating that the shoe is going to release. Ran for 2 weeks (4 releases) and reached an audiece of 90 people. Learned data gathering and analysis, along with experience working with api's to fetch and use data.",
       skills: "Python, tweepy",
       Image: sneakerAlert,
     }
+
   ];
 
 
