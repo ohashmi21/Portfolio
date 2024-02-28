@@ -1,0 +1,62 @@
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  background-color: black;
+  color: rgb(219, 219, 219);
+  width: 100%;
+}
+p{
+  color: rgb(219, 219, 219);
+}
+nav{
+  color:rgb(220, 220, 220);
+  margin-right: 20px;
+  z-index: 100;
+
+}
+nav ul{
+  list-style: none;
+  text-align: center;
+}
+nav ul li {
+  display: inline-block;
+  margin-left: 8px;
+  margin-right: 8px;
+  cursor: pointer;
+}
+#nameNav{
+  margin-left: 20px;
+}
+#Header{
+  position: fixed;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size: 1.5em;
+  top: 0;
+  width: 100%;
+  background-color: black;
+}
+
+.sectionHeader{
+  text-align: center;
+  margin-top: 25px;
+  font-size: 25px;
+}
+
+nav ul li a{text-decoration: none;color: rgb(220, 220, 220)}
+nav ul li a:visited { text-decoration: none; color: rgb(220, 220, 220)}
+nav ul li a:hover { text-decoration: none;}
+nav ul li a:focus { text-decoration: none;}
+nav ul li a:hover, a:active { text-decoration: none;}
+
+@media screen and (max-width:770px){
+  #Header{
+    font-size: 1.2em;
+  }
+}

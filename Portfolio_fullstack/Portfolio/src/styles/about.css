@@ -1,0 +1,80 @@
+.aboutContainer{
+    margin-left: 5%;
+    margin-right: 5%;
+    align-items: center;
+    border-bottom: solid;
+    border-color: rgb(198, 198, 198);
+}
+
+#sectionHeader{
+    text-align: center;
+    margin-top: 25px;
+    font-size: 25px;
+  }
+
+.aboutParagraph{
+    margin-top: 100px;
+    padding-left: 20%;
+    padding-right: 20%;
+    text-align: left;
+    font-size: 1.8em;
+    margin-bottom: 100px;
+}
+
+.hidden {
+    opacity: 0;
+    transition: all 1s;
+}
+
+.show{
+    opacity: 1;
+    transition: all 1s;
+}
+
+.paragraphhidden{
+    opacity: 0;
+    transition: all 1s;
+}
+.paragraphshow{
+    opacity: 1;
+    transition: all 3s;
+}
+
+@media screen and (max-width:1078px){
+        .hidden {
+            opacity: 1;
+            transition: all 1s;
+        }
+        
+        .show{
+            opacity: 1;
+            transition: all 1s;
+        }
+        
+        .paragraphhidden{
+            opacity: 1;
+            transition: all 1s;
+        }
+        .paragraphshow{
+            opacity: 1;
+            transition: all 3s;
+        }
+}
+
+@media screen and (max-width:770px){
+    .aboutContainer{
+        font-size: 0.7em;
+        margin-left: 1%;
+
+    }
+    .aboutParagraph{
+        text-align: center;
+        padding-left: 5%;
+        padding-right: 5%;
+        margin-top: 50px;
+    }
+    #optionalText{
+        display: none;
+    }
+
+}

@@ -1,0 +1,52 @@
+@keyframes slideInFromLeft{
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+@keyframes colorTransition{
+    from {
+        color: black;
+    }
+    to{
+        color: rgb(220, 220, 220)e;
+        
+    }
+}
+
+#personal_statement{
+    margin-top: 30vh;
+    animation: 1.5s colorTransition;;
+    margin-left: 2%;
+    font-size: 2.4em;
+    text-align: left;
+    margin-bottom: 20%;
+  }
+
+#Intro{
+    animation: 1.25s ease-out 0s 1 slideInFromLeft;
+    margin-left: 7%;
+    margin-right: 7%;
+    margin-top: 15%;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    border-bottom: solid;
+    border-color: rgb(198, 198, 198);
+    scroll-margin-top: 100px;
+}
+
+@media screen and (max-width:770px){
+    #personal_statement{
+        text-align: center;
+        font-size: 1.8em;
+        width: 100%;
+        grid-template-columns: none;
+        margin-left: 5%;
+    }
+    #Intro{
+        margin-left: 1%;
+        grid-template-columns: .9fr;
+    }
+}
