@@ -1,0 +1,14 @@
+
+.dataItem{
+    margin-bottom: 10%;
+    display: block;
+    align-self: center;
+    justify-content: center;
+    margin-left: 25%;
+    text-align: center;
+    margin-right: 25%;
+}
+
+.dataInput{
+    resize: both;
+}
