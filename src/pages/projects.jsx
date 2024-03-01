@@ -65,8 +65,8 @@ function MySwiperComponent() {
     },
     {
       name: "Personal Portfolio",
-      description: "Personal portfolio built in Next.js and React.js. Valuable experience providing necessary practice using react along with components. Deployable now, but would like to make full stack in order to update content easily using an admin site. Deployed and hosted on Digital Ocean.",
-      skills: "React.js, Next.js, HTML, CSS, Typescipt",
+      description: "full-stack personal portfolio website is built using Next.js and React.js, featuring a client-side interface designed for seamless user interaction and engagement. The server-side functionality, powered by Express, efficiently handles requests and serves data from a JSON file, ensuring smooth communication between the client and the server. Additionally, an admin site crafted in React.js enables easy content management, allowing me to update portfolio information effortlessly. Overall, it provides valuable experience in React.js components, Express routing, and effective data management techniques.",
+      skills: "React.js, Next.js, HTML, CSS, TypeScript, Express.js",
       Image: portfolio,
     },
     {
