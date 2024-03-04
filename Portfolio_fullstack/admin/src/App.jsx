@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getProjectData, updateProjectData } from './data/projectData.js';
-
+import { Button, Modal, Form } from 'react-bootstrap'; // Import necessary components from Bootstrap
 
 function App() {
   const [projectData, setProjectData] = useState([]);
+  const [showModal, setShowModal] = useState(false); // State to manage modal visibility
 
   useEffect(() => {
     async function fetchData() {
@@ -17,7 +18,7 @@ function App() {
     }
 
     fetchData();
-  }, []); // Passing an empty dependency array to useEffect
+  }, []);
 
   const handleNameChange = (index, newName) => {
     setProjectData(prevData => {
@@ -43,15 +44,25 @@ function App() {
     });
   };
 
-
   const handleUpdate = async () => {
     try {
-      await updateProjectData(projectData); // Update project data in the database
+      await updateProjectData(projectData);
       console.log("Project data updated successfully");
     } catch (error) {
       console.log("Error updating project data:", error);
     }
   };
+
+  const addProject = (name, description, skills) => {
+    const newProject = {
+        name: name,
+        description: description,
+        skills: skills
+    };
+    
+    projectData.push(newProject);
+};
+
 
   return (
     <div>
@@ -81,6 +92,35 @@ function App() {
         </div>
       ))}
       <button onClick={handleUpdate}>Update</button>
+      {/* Button to toggle modal */}
+      <Button onClick={() => setShowModal(true)}>Add Project</Button>
+      {/* Modal */}
+      <Modal show={showModal} onHide={() => setShowModal(false)}>
+        <Modal.Header closeButton>
+          <Modal.Title>Add Project</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          {/* Form fields for adding project */}
+          <Form>
+            <Form.Group controlId="projectName">
+              <Form.Label>Name</Form.Label>
+              <Form.Control type="text" placeholder="Enter project name" />
+            </Form.Group>
+            <Form.Group controlId="projectDescription">
+              <Form.Label>Description</Form.Label>
+              <Form.Control as="textarea" placeholder="Enter project description" />
+            </Form.Group>
+            <Form.Group controlId="projectSkills">
+              <Form.Label>Skills</Form.Label>
+              <Form.Control type="text" placeholder="Enter project skills" />
+            </Form.Group>
+          </Form>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={() => setShowModal(false)}>Close</Button>
+          <Button onClick={() => {setShowModal(false); addProject(document.getElementById("projectName").value, document.getElementById("projectDescription").value, document.getElementById("projectSkills").value,)}}>Save Project</Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
