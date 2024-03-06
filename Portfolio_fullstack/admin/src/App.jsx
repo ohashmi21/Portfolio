@@ -91,13 +91,14 @@ function App() {
           />
         </div>
       ))}
+      <div className='buttons'>
       <button onClick={handleUpdate}>Update</button>
       {/* Button to toggle modal */}
-      <Button onClick={() => setShowModal(true)}>Add Project</Button>
+      <Button onClick={() => setShowModal(true)} className='addProject'>Add Project</Button>
       {/* Modal */}
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title>Add Project</Modal.Title>
+          <Modal.Title  >Add Project</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           {/* Form fields for adding project */}
@@ -121,6 +122,7 @@ function App() {
           <Button onClick={() => {setShowModal(false); addProject(document.getElementById("projectName").value, document.getElementById("projectDescription").value, document.getElementById("projectSkills").value,)}}>Save Project</Button>
         </Modal.Footer>
       </Modal>
+      </div>
     </div>
   );
 }
