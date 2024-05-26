@@ -33,7 +33,7 @@ function MySwiperComponent() {
         rotate: 50,
         stretch: 0,
         depth: 100,
-        modifier: 1,
+        modifier: 2,
         slideShadows: true,
       },
       pagination: {
