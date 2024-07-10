@@ -4,7 +4,7 @@ import About from "./about"
 import Projects from "./projects"
 import Contact from "./contact"
 import Footer from "./footer"
-
+import Experience from "./experience"
 
 export default function Home() {
   return (
@@ -14,6 +14,7 @@ export default function Home() {
       
       <div><Intro></Intro></div>
       <div><About></About></div>
+      <div><Experience></Experience></div>
       <div><Projects></Projects></div>
       <div><Contact></Contact></div>
       <div><Navbar></Navbar></div>

@@ -4,6 +4,7 @@ import '@/styles/about.css';
 import '@/styles/projects.css';
 import '@/styles/contact.css';
 import '@/styles/footer.css';
+import '@/styles/experience.css';
 import type { AppProps } from 'next/app'
 import dynamic from "next/dynamic";
 

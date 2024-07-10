@@ -17,6 +17,17 @@ app.get('/projectdata', async (req, res) => {
     }
 });
 
+app.get('/experiencedata', async (req, res) =>{
+    try{
+        const data = require('./data/data.json');
+        const experienceJson = data.experience;
+        res.json(experienceJson);
+    } catch(error) {
+        console.error("Error fetching experience data:", error);
+        res.status(500).json({ error: 'Internal server error'})
+    }
+})
+
 app.post('/updateprojects', async (req, res) => {
     try {
         const data = require('./data/data.json');

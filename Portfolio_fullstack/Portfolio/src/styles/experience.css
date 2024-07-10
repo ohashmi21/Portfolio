@@ -1,0 +1,10 @@
+.experienceContainer{
+    
+  text-align: center;
+}
+
+.buttonSelector{
+    display: flex;
+    column-gap: 50px;
+    justify-content: center;
+}
