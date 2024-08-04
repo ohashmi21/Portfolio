@@ -1,10 +1,75 @@
 .experienceContainer{
-    
+  margin-left: 5%;
+  margin-right: 5%;
   text-align: center;
+  border-bottom: solid;
+  border-color: rgb(198, 198, 198);
+  margin-top: 25px;
+}
+
+.eHeader{
+  font-size: 25px;
 }
 
 .buttonSelector{
     display: flex;
     column-gap: 50px;
     justify-content: center;
+}
+
+/* custom.css */
+/* custom.css */
+/* custom.css */
+body {
+  background-color: black !important;
+  color: white !important;
+}
+
+.btn-primary {
+  background-color: black !important;
+  border-color: black !important;
+  color: white !important;
+}
+
+.btn-primary:hover {
+  background-color: #333 !important;
+  border-color: #333 !important;
+}
+
+.modal .modal-content {
+  background-color: black !important;
+  color: white !important;
+  border-style: solid;
+  border-color: white !important;
+  border-width: 1px !important;
+}
+
+.modal-header,
+.modal-footer {
+  border-color: #333 !important;
+}
+
+.modal-title {
+  color: white !important;
+}
+
+.card {
+  background-color: black !important;
+  color: white !important;
+  border-color: #333 !important;
+}
+
+.card-title,
+.card-subtitle {
+  color: white !important;
+}
+
+.workContainer {
+  display: flex;
+  margin-left: 15%;
+  margin-right: 15%;
+  align-items: center;
+  justify-content: center; /* Center the content horizontally */
+  flex-wrap: wrap; /* Wrap the cards to a new line if they don't fit */
+  margin-bottom: 40px;
 }
