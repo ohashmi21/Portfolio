@@ -1,9 +1,7 @@
 .experienceContainer{
-  margin-left: 5%;
-  margin-right: 5%;
+  
   text-align: center;
-  border-bottom: solid;
-  border-color: rgb(198, 198, 198);
+  margin-bottom: 40px;
   margin-top: 25px;
 }
 
@@ -71,5 +69,5 @@ body {
   align-items: center;
   justify-content: center; /* Center the content horizontally */
   flex-wrap: wrap; /* Wrap the cards to a new line if they don't fit */
-  margin-bottom: 40px;
+  
 }

@@ -45,7 +45,7 @@ const ExperienceModal = ({ show, onHide, experience }) => {
   );
 };
 
-export default function App() {
+export default function Experience() {
   const [visibleContent, setVisibleContent] = useState("Work");
   const [experience, setExperience] = useState([]);
   const [modalShow, setModalShow] = useState(false);

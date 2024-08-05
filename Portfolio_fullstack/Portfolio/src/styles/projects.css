@@ -1,5 +1,9 @@
   #projects{
     scroll-margin-top: 105px;
+    border-top: solid;
+    border-color: rgb(198, 198, 198);
+    margin-left: 5%;
+    margin-right: 5%;
   }
   
   .sectionheader{
@@ -9,6 +13,7 @@
     text-align: left;
     font-size: 1.8em;
     scroll-margin-top: 110px;
+    
   }
   .swiperContainer {
     width: 55%;
