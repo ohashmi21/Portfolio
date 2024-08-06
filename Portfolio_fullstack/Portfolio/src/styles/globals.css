@@ -18,6 +18,7 @@ nav{
   margin-right: 20px;
   z-index: 100;
 
+
 }
 nav ul{
   list-style: none;
@@ -41,6 +42,7 @@ nav ul li {
   top: 0;
   width: 100%;
   background-color: black;
+  padding-top: 10px;
 }
 
 .sectionHeader{

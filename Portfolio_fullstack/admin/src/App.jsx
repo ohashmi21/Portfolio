@@ -1,5 +1,7 @@
 import TProjects from './projects.jsx';
+import TExperience from './experience.jsx';
 import React, { useState} from 'react';
+import './styles/homePage.css'
 function App() {
   const [visibleContent, setVisibleContent] = useState('Projects');
 
@@ -17,11 +19,11 @@ function App() {
     <body>
       <div>
         <div className='buttonSelector'>
-          <p onClick={handleShowProjects}>Projects</p>
-          <p onClick={handleShowExperience}>Experience</p>
+          <p onClick={handleShowProjects} className="button">Projects</p>
+          <p onClick={handleShowExperience} className="button">Experience</p>
         </div>
         {visibleContent==="Projects" && (<div><TProjects></TProjects></div>)}
-          
+        {visibleContent==="Experience" && (<div><TExperience></TExperience></div>)}
         </div>
     </body>
   )

@@ -28,6 +28,26 @@ app.get('/experiencedata', async (req, res) =>{
     }
 })
 
+app.post('/updateexperience', async (req, res) => {
+    try {
+        const data = require('./data/data.json');
+        const updatedExperience = req.body;
+
+        // Validate updatedExperience data here if needed
+
+        // Assign the updated experience array to the data object
+        data.experience = updatedExperience;
+
+        // Write the updated data object back to the JSON file asynchronously
+        await fs.writeFile('./data/data.json', JSON.stringify(data, null, 2));
+        
+        res.status(200).json({ message: 'Experience data updated successfully' });
+    } catch (error) {
+        console.error("Error updating experience data:", error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 app.post('/updateprojects', async (req, res) => {
     try {
         const data = require('./data/data.json');

@@ -1,29 +1,26 @@
-import React, {useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import 'swiper/css'; // Import Swiper styles
 import 'swiper/css/pagination';
 import 'swiper/css/effect-coverflow';
 import { EffectCoverflow, Pagination } from 'swiper/modules'; // Import Swiper library
-import Swiper from "swiper"
-Swiper.use([EffectCoverflow, Pagination])
+import Swiper from "swiper";
+Swiper.use([EffectCoverflow, Pagination]);
 import Image from 'next/image';
 import naymahHashmi from '@/images/naymahHashmi.png';
-import portfolio from '@/images/portfolio.png'
-import sneakerAlert from '@/images/sneakerAlert.png'
-import studybetter from '@/images/studybetter.png'
-import { motion, AnimatePresence } from 'framer-motion';
+import portfolio from '@/images/portfolio.png';
+import sneakerAlert from '@/images/sneakerAlert.png';
+import studybetter from '@/images/studybetter.png';
+import { motion } from 'framer-motion';
 import Modal from '@/projectsComponents/modal/index.jsx';
-const {getProjectData} = require ('./api/data/projectData.js')
-
+const { getProjectData } = require('./api/data/projectData.js');
 
 function MySwiperComponent() {
   const [projects, setProjects] = useState([]);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalName, setModalName] = useState("");
-  const [modalDescription, setModalDescription] = useState("");
-  const [modalSkills, setModalSkills] = useState("");
-  
+  const [modalShow, setModalShow] = useState(false);
+  const [selectedProject, setSelectedProject] = useState(null);
+
   useEffect(() => {
-    fetchData()
+    fetchData();
     const swiper = new Swiper(".mySwiper", {
       effect: "coverflow",
       grabCursor: true,
@@ -44,7 +41,6 @@ function MySwiperComponent() {
     return () => {
       swiper.destroy();
     };
-    ; // Fetch data when the component mounts
   }, []);
 
   async function fetchData() {
@@ -56,21 +52,12 @@ function MySwiperComponent() {
     }
   }
 
-  function openModal(name, description, skills) {
-    setModalName(name);
-    setModalDescription(description);
-    setModalSkills(skills);
-    setModalOpen(true);
-  }
+  const handleCardClick = (project) => {
+    setSelectedProject(project);
+    setModalShow(true);
+  };
 
-  function closeModal() {
-    setModalOpen(false);
-    setModalName("");
-    setModalDescription("");
-    setModalSkills("");
-  }
-
-  const projectImage=[
+  const projectImage = [
     {
       Image: naymahHashmi,
     },
@@ -82,9 +69,8 @@ function MySwiperComponent() {
     },
     {
       Image: sneakerAlert,
-    }
-  ]
-  console.log(projects)
+    },
+  ];
 
   return (
     <div className='projectsContainer' id="projects">
@@ -93,9 +79,9 @@ function MySwiperComponent() {
         <div className="mySwiper">
           <div className="swiper-wrapper">
             {projects.map((project, index) => (
-              <div className="swiper-slide" id="myBtn" key={index} >
-                <motion.div onClick={() => openModal(project.name, project.description, project.skills)}>
-                <Image src={projectImage[index].Image} alt="project"/>
+              <div className="swiper-slide" id="myBtn" key={index}>
+                <motion.div onClick={() => handleCardClick(project)}>
+                  <Image src={projectImage[index].Image} alt="project" />
                 </motion.div>
                 <p className='projectName'>{project.name}</p>
               </div>
@@ -103,17 +89,13 @@ function MySwiperComponent() {
           </div>
           <div className="swiper-pagination"></div>
         </div>
-        <AnimatePresence initial={false} mode="wait" onExitComplete={() => null}>
-          {modalOpen && (
-            <Modal
-              modalOpen={modalOpen}
-              handleClose={closeModal}
-              Name={modalName}
-              Description={modalDescription}
-              Skills={modalSkills}
-            />
-          )}
-        </AnimatePresence>
+        {selectedProject && (
+          <Modal
+            show={modalShow}
+            onHide={() => setModalShow(false)}
+            project={selectedProject}
+          />
+        )}
       </div>
       <div id="projectsBorder"></div>
     </div>

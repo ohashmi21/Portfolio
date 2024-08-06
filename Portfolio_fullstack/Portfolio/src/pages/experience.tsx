@@ -78,7 +78,7 @@ export default function Experience() {
   };
 
   return (
-    <div className="experienceContainer">
+    <div className="experienceContainer" id="experience">
       <p className='eHeader'>Experience</p>
       <div className="buttonSelector">
         <p onClick={handleShowExperience}>Work</p>
