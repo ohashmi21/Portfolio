@@ -31,5 +31,17 @@
       "description": "Leveraging Python, I enhanced Denso's product security evaluations, boosting productivity through optimized data processes. My analytical skills helped identify and resolve security vulnerabilities, ensuring robust security standards. Collaborating with cross-functional teams, I facilitated swift and precise responses to security challenges, demonstrating my strong capability in computer science.",
       "company": "Denso international"
     }
+  ],
+  "volunteer": [
+    {
+      "position": "Media Coordinator",
+      "description": "Developed and executed social media strategies to promote workshops, game nights, and coding nights resulting in increased participation and engagement by the clubs impressive 300 members.",
+      "organization": "Society of Computer Developers"
+    },
+    {
+      "position": "Brothers Director",
+      "description": "Organized events for the local youth at the mosque ranging from education, social, and recreational activities. These events included cultural exchange programs, sports tournaments, and community service projects, aimed at fostering a sense of community, promoting personal development, and encouraging positive social interactions among the youth.",
+      "organization": "MYGD"
+    }
   ]
 }

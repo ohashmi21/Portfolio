@@ -1,17 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { getExperienceData } from './api/data/experienceData';
+import { getVolunteerData } from './api/data/leadershipData';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+const cardStyle = {
+  width: '18rem',
+  height: '11rem',
+  margin: '10px'
+};
 
 const ExperienceCard = ({ experience, onClick }) => {
   return (
-    <Card style={{ width: '18rem', margin: '10px' }}>
-      <Card.Body>
-        <Card.Title>{experience.company}</Card.Title>
-        <Card.Subtitle className="mb-2 mt-2 text-light">{experience.role}</Card.Subtitle>
+    <Card style={cardStyle}>
+      <Card.Body className="card-body">
+        <Card.Title className="card-title">{experience.company}</Card.Title>
+        <Card.Subtitle className="card-subtitle mb-2 mt-2">{experience.role}</Card.Subtitle>
         <Button variant="primary" onClick={onClick}>
           Learn More
         </Button>
@@ -19,6 +25,21 @@ const ExperienceCard = ({ experience, onClick }) => {
     </Card>
   );
 };
+
+const VolunteerCard = ({ volunteer, onClick }) => {
+  return (
+    <Card style={cardStyle}>
+      <Card.Body className="card-body">
+        <Card.Title className="card-title">{volunteer.organization}</Card.Title>
+        <Card.Subtitle className="card-subtitle mb-2 mt-2">{volunteer.position}</Card.Subtitle>
+        <Button variant="primary" onClick={onClick}>
+          Learn More
+        </Button>
+      </Card.Body>
+    </Card>
+  );
+};
+
 
 const ExperienceModal = ({ show, onHide, experience }) => {
   return (
@@ -45,14 +66,48 @@ const ExperienceModal = ({ show, onHide, experience }) => {
   );
 };
 
+const VolunteerModal = ({ show, onHide, volunteer }) => {
+  return (
+    <Modal
+      show={show}
+      onHide={onHide}
+      size="lg"
+      aria-labelledby="contained-modal-title-vcenter"
+      centered
+    >
+      <Modal.Header closeButton>
+        <Modal.Title id="contained-modal-title-vcenter">
+          {volunteer.position} at {volunteer.organization}
+        </Modal.Title>
+      </Modal.Header>
+      <Modal.Body>
+        <h4>Description</h4>
+        <p>{volunteer.description}</p>
+      </Modal.Body>
+      <Modal.Footer>
+        <Button onClick={onHide}>Close</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+
 export default function Experience() {
   const [visibleContent, setVisibleContent] = useState("Work");
   const [experience, setExperience] = useState([]);
+  const [volunteer, setVolunteer] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [selectedExperience, setSelectedExperience] = useState(null);
+  const [selectedVolunteer, setSelectedVolunteer] = useState(null);
 
-  const handleCardClick = (experience) => {
+  const handleExperienceCardClick = (experience) => {
     setSelectedExperience(experience);
+    setSelectedVolunteer(null); // Clear volunteer selection
+    setModalShow(true);
+  };
+
+  const handleVolunteerCardClick = (volunteer) => {
+    setSelectedVolunteer(volunteer);
+    setSelectedExperience(null); // Clear experience selection
     setModalShow(true);
   };
 
@@ -63,9 +118,11 @@ export default function Experience() {
   async function fetchData() {
     try {
       const data = await getExperienceData();
+      const vdata = await getVolunteerData();
       setExperience(data);
+      setVolunteer(vdata);
     } catch (error) {
-      console.error("Error fetching experience data:", error);
+      console.error("Error fetching data:", error);
     }
   }
 
@@ -87,7 +144,7 @@ export default function Experience() {
       {visibleContent === "Work" && (
         <div className='workContainer'>
           {experience.map((exp, index) => (
-            <ExperienceCard key={index} experience={exp} onClick={() => handleCardClick(exp)} />
+            <ExperienceCard key={index} experience={exp} onClick={() => handleExperienceCardClick(exp)} />
           ))}
           {selectedExperience && (
             <ExperienceModal
@@ -99,9 +156,17 @@ export default function Experience() {
         </div>
       )}
       {visibleContent === "Volunteer" && (
-        <div>
-          <h2>Volunteer Experience</h2>
-          <p>Details about your volunteer experience...</p>
+        <div className='workContainer'>
+          {volunteer.map((vol, index) => (
+            <VolunteerCard key={index} volunteer={vol} onClick={() => handleVolunteerCardClick(vol)} />
+          ))}
+          {selectedVolunteer && (
+            <VolunteerModal
+              show={modalShow}
+              onHide={() => setModalShow(false)}
+              volunteer={selectedVolunteer}
+            />
+          )}
         </div>
       )}
     </div>

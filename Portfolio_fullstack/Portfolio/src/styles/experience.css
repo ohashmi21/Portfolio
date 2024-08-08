@@ -1,8 +1,7 @@
 .experienceContainer{
-  
   text-align: center;
-  margin-bottom: 40px;
-  margin-top: 25px;
+  margin-bottom: 100px;
+  padding-top: 100px;
 }
 
 .eHeader{
@@ -11,7 +10,7 @@
 
 .buttonSelector{
     display: flex;
-    column-gap: 50px;
+    column-gap: 50px; 
     justify-content: center;
 }
 
@@ -69,5 +68,31 @@ body {
   align-items: center;
   justify-content: center; /* Center the content horizontally */
   flex-wrap: wrap; /* Wrap the cards to a new line if they don't fit */
-  
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.card-subtitle {
+  font-size: 1rem;
+  color: #6c757d;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-body > * {
+  margin-bottom: 1rem;
+}
+
+.card-text {
+  flex-grow: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }

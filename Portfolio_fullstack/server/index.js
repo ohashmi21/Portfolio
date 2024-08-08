@@ -48,6 +48,37 @@ app.post('/updateexperience', async (req, res) => {
     }
 });
 
+app.get('/volunteerdata', async (req, res) =>{
+    try{
+        const data = require('./data/data.json');
+        const volunteerJson = data.volunteer;
+        res.json(volunteerJson);
+    } catch(error) {
+        console.error("Error fetching volunteer data:", error);
+        res.status(500).json({ error: 'Internal server error'})
+    }
+})
+
+app.post('/updatevolunteer', async (req, res) => {
+    try {
+        const data = require('./data/data.json');
+        const updatedVolunteer = req.body;
+
+        // Validate updatedExperience data here if needed
+
+        // Assign the updated experience array to the data object
+        data.volunteer = updatedVolunteer;
+
+        // Write the updated data object back to the JSON file asynchronously
+        await fs.writeFile('./data/data.json', JSON.stringify(data, null, 2));
+        
+        res.status(200).json({ message: 'Experience data updated successfully' });
+    } catch (error) {
+        console.error("Error updating experience data:", error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+});
+
 app.post('/updateprojects', async (req, res) => {
     try {
         const data = require('./data/data.json');

@@ -12,8 +12,8 @@ function About() {
   });
 
   return (
-    <div>
-      <div className="aboutContainer" id="about">
+    <div id="about">
+      <div className="aboutContainer" >
         <div ref={myRef}>
         <div className={`${isVisible ? 'show' : 'hidden'}`} ref={aboutRef}><p id="sectionHeader">About</p></div>
         </div>
