@@ -1,20 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { getExperienceData, updateExperienceData } from './data/experienceData.js';
-import { Button, Modal, Form } from 'react-bootstrap'; // Import necessary components from Bootstrap
+import { Modal, Form } from 'react-bootstrap';
 
 function TExperience() {
   const [experienceData, setExperienceData] = useState([]);
-  const [showModal, setShowModal] = useState(false); // State to manage modal visibility
+  const [showModal, setShowModal] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [statusText, setStatusText] = useState('Changes are local until you click Save All.');
+  const [newExperience, setNewExperience] = useState({ role: '', description: '', company: '' });
 
   useEffect(() => {
     async function fetchData() {
       try {
         const data = await getExperienceData();
         setExperienceData(data);
-        console.log(data.role)
       } catch (error) {
         console.log(error);
+        setStatusText('Unable to load experience data.');
       }
     }
 
@@ -27,6 +30,7 @@ function TExperience() {
       updatedData[index].role = newRole;
       return updatedData;
     });
+    setStatusText('Unsaved changes');
   };
 
   const handleDescriptionChange = (index, newDescription) => {
@@ -35,6 +39,7 @@ function TExperience() {
       updatedData[index].description = newDescription;
       return updatedData;
     });
+    setStatusText('Unsaved changes');
   };
 
   const handleCompanyChange = (index, newCompany) => {
@@ -43,36 +48,52 @@ function TExperience() {
       updatedData[index].company = newCompany;
       return updatedData;
     });
+    setStatusText('Unsaved changes');
   };
 
   const handleUpdate = async () => {
     try {
+      setIsSaving(true);
       await updateExperienceData(experienceData);
-      console.log("Experience data updated successfully");
+      setStatusText('All changes saved.');
     } catch (error) {
       console.log("Error updating experience data:", error);
+      setStatusText('Save failed. Please try again.');
+    } finally {
+      setIsSaving(false);
     }
   };
 
-  const addExperiece = (role, description, company) => {
-    const newExperience = {
-        role: role,
-        description: description,
-        company: company
+  const addExperience = () => {
+    if (!newExperience.role.trim()) {
+      setStatusText('Role is required.');
+      return;
+    }
+
+    const newExperienceEntry = {
+        role: newExperience.role.trim(),
+        description: newExperience.description.trim(),
+        company: newExperience.company.trim()
     };
-    
-    experienceData.push(newExperience);
-};
+
+    setExperienceData((prev) => [...prev, newExperienceEntry]);
+    setShowModal(false);
+    setNewExperience({ role: '', description: '', company: '' });
+    setStatusText('Unsaved changes');
+  };
 
 
   return (
-    <div>
+    <div className='editorShell'>
+      <div className='editorTopbar'>
+        <h2 className='editorTitle'>Experience</h2>
+        <p className='editorStatus'>{statusText}</p>
+      </div>
       {experienceData.map((experience, index) => (
         <div key={index} className='dataItem'>
-          <h1>Experience {index + 1}</h1>
+          <h3>Experience {index + 1}</h3>
           <h3>Role</h3>
           <textarea
-            type="text"
             value={experience.role}
             onChange={(e) => handleRoleChange(index, e.target.value)}
             className='dataInput'
@@ -92,35 +113,50 @@ function TExperience() {
           />
         </div>
       ))}
+      {experienceData.length === 0 && <div className='emptyState'>No experience entries available yet.</div>}
       <div className='buttons'>
-      <button onClick={handleUpdate}>Update</button>
-      {/* Button to toggle modal */}
-      <Button onClick={() => setShowModal(true)} className='addProject'>Add Experience</Button>
-      {/* Modal */}
+      <button onClick={handleUpdate} className='primaryAction' disabled={isSaving}>
+        {isSaving ? 'Saving...' : 'Save All'}
+      </button>
+      <button onClick={() => setShowModal(true)} className='secondaryAction'>Add Experience</button>
       <Modal show={showModal} onHide={() => setShowModal(false)}>
         <Modal.Header closeButton>
-          <Modal.Title  >Add Experience</Modal.Title>
+          <Modal.Title>Add Experience</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          {/* Form fields for adding project */}
           <Form>
             <Form.Group controlId="projectName">
               <Form.Label>Role</Form.Label>
-              <Form.Control type="text" placeholder="Enter project name" />
+              <Form.Control
+                type="text"
+                placeholder="Enter role"
+                value={newExperience.role}
+                onChange={(event) => setNewExperience((prev) => ({ ...prev, role: event.target.value }))}
+              />
             </Form.Group>
             <Form.Group controlId="projectDescription">
               <Form.Label>Description</Form.Label>
-              <Form.Control as="textarea" placeholder="Enter project description" />
+              <Form.Control
+                as="textarea"
+                placeholder="Enter experience description"
+                value={newExperience.description}
+                onChange={(event) => setNewExperience((prev) => ({ ...prev, description: event.target.value }))}
+              />
             </Form.Group>
             <Form.Group controlId="projectSkills">
               <Form.Label>Company</Form.Label>
-              <Form.Control type="text" placeholder="Enter project skills" />
+              <Form.Control
+                type="text"
+                placeholder="Enter company"
+                value={newExperience.company}
+                onChange={(event) => setNewExperience((prev) => ({ ...prev, company: event.target.value }))}
+              />
             </Form.Group>
           </Form>
         </Modal.Body>
         <Modal.Footer>
-          <Button onClick={() => setShowModal(false)}>Close</Button>
-          <Button onClick={() => {setShowModal(false); addExperiece(document.getElementById("projectName").value, document.getElementById("projectDescription").value, document.getElementById("projectSkills").value,)}}>Save Experience</Button>
+          <button className='secondaryAction' onClick={() => setShowModal(false)}>Close</button>
+          <button className='primaryAction' onClick={addExperience}>Add</button>
         </Modal.Footer>
       </Modal>
       </div>

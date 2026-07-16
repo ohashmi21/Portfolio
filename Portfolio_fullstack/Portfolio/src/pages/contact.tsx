@@ -14,7 +14,7 @@ export default function Contact() {
         </div>
         <div className="linksflex">
           <Image className="resumeimg" alt="resume image" src={resume} />
-          <a href="Omair_Hashmi_Resume.pdf" className="resume" download="Omair_Hashmi_Resume.pdf">Resume</a>
+          <a href="/Omair_Hashmi_Resume.pdf" className="resume" download="Omair_Hashmi_Resume.pdf">Resume</a>
         </div>
         <div className="linksflex"> 
           <Image className="githubimg" alt="Github image" src={github} /> 

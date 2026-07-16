@@ -6,7 +6,7 @@
     margin-right: 5%;
   }
 .footer p{
-    color:rgb(195, 195, 195)
+    color: var(--muted-text);
 }
   
   .container {

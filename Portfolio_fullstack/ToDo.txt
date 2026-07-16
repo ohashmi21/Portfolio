@@ -1,0 +1,8 @@
+Things I need to fix here
+* Make it so that I Can upload a resume from the admin server
+* Fix the digital ocean end points
+* Be able to upload and update the project photo
+* Make the intro and about statement customizable
+* Photo's?
+* Make it a little more interesting
+* 

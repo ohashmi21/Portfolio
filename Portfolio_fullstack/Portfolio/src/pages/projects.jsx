@@ -5,19 +5,15 @@ import 'swiper/css/effect-coverflow';
 import { EffectCoverflow, Pagination } from 'swiper/modules'; // Import Swiper library
 import Swiper from "swiper";
 Swiper.use([EffectCoverflow, Pagination]);
-import Image from 'next/image';
-import naymahHashmi from '@/images/naymahHashmi.png';
-import portfolio from '@/images/portfolio.png';
-import sneakerAlert from '@/images/sneakerAlert.png';
-import studybetter from '@/images/studybetter.png';
 import { motion } from 'framer-motion';
 import Modal from '@/projectsComponents/modal/index.jsx';
-const { getProjectData } = require('./api/data/projectData.js');
+const { getProjectData, getProjectImageUrl } = require('./api/data/projectData.js');
 
 function MySwiperComponent() {
   const [projects, setProjects] = useState([]);
   const [modalShow, setModalShow] = useState(false);
   const [selectedProject, setSelectedProject] = useState(null);
+  const [brokenImages, setBrokenImages] = useState({});
 
   useEffect(() => {
     fetchData();
@@ -57,21 +53,6 @@ function MySwiperComponent() {
     setModalShow(true);
   };
 
-  const projectImage = [
-    {
-      Image: naymahHashmi,
-    },
-    {
-      Image: portfolio,
-    },
-    {
-      Image: studybetter,
-    },
-    {
-      Image: sneakerAlert,
-    },
-  ];
-
   return (
     <div className='projectsContainer' id="projects">
       <div><p className='sectionHeader'>Projects</p></div>
@@ -81,7 +62,18 @@ function MySwiperComponent() {
             {projects.map((project, index) => (
               <div className="swiper-slide" id="myBtn" key={index}>
                 <motion.div onClick={() => handleCardClick(project)}>
-                  <Image src={projectImage[index].Image} alt="project" />
+                  {project.Images?.[0] && !brokenImages[index] ? (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img
+                      src={getProjectImageUrl(project.Images[0])}
+                      alt={project.name}
+                      onError={() =>
+                        setBrokenImages((prevState) => ({ ...prevState, [index]: true }))
+                      }
+                    />
+                  ) : (
+                    <div className="projectImageFallback">Image unavailable</div>
+                  )}
                 </motion.div>
                 <p className='projectName'>{project.name}</p>
               </div>

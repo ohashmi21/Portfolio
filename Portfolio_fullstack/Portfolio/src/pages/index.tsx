@@ -8,18 +8,14 @@ import Experience from "./experience"
 
 export default function Home() {
   return (
-    
-    <body>
-      <div>
-      
-      <div><Intro></Intro></div>
-      <div><About></About></div>
-      <div><Experience></Experience></div>
-      <div><Projects></Projects></div>
-      <div><Contact></Contact></div>
-      <div><Navbar></Navbar></div>
-      <div><Footer></Footer></div>
-      </div>
-    </body>
+    <main>
+      <Navbar />
+      <Intro />
+      <About />
+      <Experience />
+      <Projects />
+      <Contact />
+      <Footer />
+    </main>
   )
 }

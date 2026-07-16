@@ -6,13 +6,47 @@ import Modal from 'react-bootstrap/Modal';
 import Card from 'react-bootstrap/Card';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+type ExperienceEntry = {
+  company: string;
+  role: string;
+  description: string;
+};
+
+type VolunteerEntry = {
+  organization: string;
+  position: string;
+  description: string;
+};
+
+type ExperienceCardProps = {
+  experience: ExperienceEntry;
+  onClick: () => void;
+};
+
+type VolunteerCardProps = {
+  volunteer: VolunteerEntry;
+  onClick: () => void;
+};
+
+type ExperienceModalProps = {
+  show: boolean;
+  onHide: () => void;
+  experience: ExperienceEntry;
+};
+
+type VolunteerModalProps = {
+  show: boolean;
+  onHide: () => void;
+  volunteer: VolunteerEntry;
+};
+
 const cardStyle = {
   width: '18rem',
   height: '11rem',
   margin: '10px'
 };
 
-const ExperienceCard = ({ experience, onClick }) => {
+const ExperienceCard = ({ experience, onClick }: ExperienceCardProps) => {
   return (
     <Card style={cardStyle}>
       <Card.Body className="card-body">
@@ -26,7 +60,7 @@ const ExperienceCard = ({ experience, onClick }) => {
   );
 };
 
-const VolunteerCard = ({ volunteer, onClick }) => {
+const VolunteerCard = ({ volunteer, onClick }: VolunteerCardProps) => {
   return (
     <Card style={cardStyle}>
       <Card.Body className="card-body">
@@ -41,7 +75,7 @@ const VolunteerCard = ({ volunteer, onClick }) => {
 };
 
 
-const ExperienceModal = ({ show, onHide, experience }) => {
+const ExperienceModal = ({ show, onHide, experience }: ExperienceModalProps) => {
   return (
     <Modal
       show={show}
@@ -66,7 +100,7 @@ const ExperienceModal = ({ show, onHide, experience }) => {
   );
 };
 
-const VolunteerModal = ({ show, onHide, volunteer }) => {
+const VolunteerModal = ({ show, onHide, volunteer }: VolunteerModalProps) => {
   return (
     <Modal
       show={show}
@@ -93,19 +127,19 @@ const VolunteerModal = ({ show, onHide, volunteer }) => {
 
 export default function Experience() {
   const [visibleContent, setVisibleContent] = useState("Work");
-  const [experience, setExperience] = useState([]);
-  const [volunteer, setVolunteer] = useState([]);
+  const [experience, setExperience] = useState<ExperienceEntry[]>([]);
+  const [volunteer, setVolunteer] = useState<VolunteerEntry[]>([]);
   const [modalShow, setModalShow] = useState(false);
-  const [selectedExperience, setSelectedExperience] = useState(null);
-  const [selectedVolunteer, setSelectedVolunteer] = useState(null);
+  const [selectedExperience, setSelectedExperience] = useState<ExperienceEntry | null>(null);
+  const [selectedVolunteer, setSelectedVolunteer] = useState<VolunteerEntry | null>(null);
 
-  const handleExperienceCardClick = (experience) => {
+  const handleExperienceCardClick = (experience: ExperienceEntry) => {
     setSelectedExperience(experience);
     setSelectedVolunteer(null); // Clear volunteer selection
     setModalShow(true);
   };
 
-  const handleVolunteerCardClick = (volunteer) => {
+  const handleVolunteerCardClick = (volunteer: VolunteerEntry) => {
     setSelectedVolunteer(volunteer);
     setSelectedExperience(null); // Clear experience selection
     setModalShow(true);

@@ -1,18 +1,164 @@
-
-.dataItem{
-    margin-bottom: 10%;
-    display: block;
-    align-self: center;
-    justify-content: center;
-    margin-left: 25%;
-    text-align: center;
-    margin-right: 25%;
+.editorShell {
+    background-color: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 16px;
+    box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
 }
 
-.dataInput{
-    resize: both;
+.editorTopbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    gap: 12px;
 }
 
-.buttons{
+.editorTitle {
+    margin: 0;
+    font-size: 1.3rem;
+    color: #1f2937;
+}
+
+.editorStatus {
+    margin: 0;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.dataItem {
+    margin-bottom: 14px;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 14px;
+    background-color: #fafcff;
+}
+
+.dataItem h3 {
+    margin: 0 0 4px;
+    color: #334155;
+    font-size: 1rem;
+}
+
+.dataInput {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    padding: 8px 10px;
+    resize: vertical;
+    min-height: 40px;
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+}
+
+.dataInput:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 10px;
+}
+
+.primaryAction,
+.secondaryAction {
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    font-weight: 600;
+}
+
+.primaryAction {
+    background-color: #2563eb;
+    color: #ffffff;
+}
+
+.primaryAction:hover {
+    background-color: #1d4ed8;
+}
+
+.secondaryAction {
+    background-color: #e2e8f0;
+    color: #0f172a;
+}
+
+.secondaryAction:hover {
+    background-color: #cbd5e1;
+}
+
+.emptyState {
     text-align: center;
+    padding: 28px 14px;
+    color: #64748b;
+}
+
+.imageNameText {
+    margin: 0 0 10px;
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+.imageGrid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.imageGridItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 160px;
+}
+
+.imagePreview {
+    width: 100%;
+    max-width: 280px;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+}
+
+.imageGridItem .imagePreview {
+    max-width: 160px;
+    height: 110px;
+    margin-bottom: 0;
+}
+
+.imageGridItem .secondaryAction {
+    padding: 6px 10px;
+    font-size: 0.8rem;
+    width: 100%;
+}
+
+.coverBadge {
+    background-color: #16a34a;
+    color: #ffffff;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 999px;
+}
+
+.imageActions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+}
+
+.imageFileInput {
+    max-width: 280px;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
 }

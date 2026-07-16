@@ -2,77 +2,69 @@
     margin-left: 5%;
     margin-right: 5%;
     align-items: center;
-    border-bottom: solid;
-    border-color: rgb(198, 198, 198);
+    border-top: 1px solid var(--border-color);
+    padding-bottom: 72px;
 }
 
 #sectionHeader{
     text-align: center;
-    padding-top: 100px;
-    font-size: 25px;
+    padding-top: 72px;
+    font-size: 4vh;
   }
 
 .aboutParagraph{
-    margin-top: 40px;
-    padding-left: 20%;
-    padding-right: 20%;
-    text-align: center;
-    font-size: 1.8em;
-    margin-bottom: 100px;
+    margin-top: 0;
+    text-align: left;
+    font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+    margin-bottom: 0;
     scroll-margin-block: 1000px;
+    max-width: 700px;
 }
 
-.hidden {
-    opacity: 0;
-    transition: all 1s;
+.aboutSplit {
+    display: grid;
+    grid-template-columns: minmax(220px, 320px) 1fr;
+    align-items: center;
+    gap: 40px;
+    padding: 40px 10% 0;
 }
 
-.show{
-    opacity: 1;
-    transition: all 1s;
-}
-
-.paragraphhidden{
-    opacity: 0;
-    transition: all 1s;
-}
-.paragraphshow{
-    opacity: 1;
-    transition: all 3s;
-}
-
-@media screen and (max-width:1078px){
-        .hidden {
-            opacity: 1;
-            transition: all 1s;
-        }
-        
-        .show{
-            opacity: 1;
-            transition: all 1s;
-        }
-        
-        .paragraphhidden{
-            opacity: 1;
-            transition: all 1s;
-        }
-        .paragraphshow{
-            opacity: 1;
-            transition: all 3s;
-        }
+.aboutImageTemplate {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    border-radius: 18px;
+    border: 2px dashed var(--border-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--card-bg);
+    color: var(--muted-text);
+    font-size: 1rem;
 }
 
 @media screen and (max-width:770px){
     .aboutContainer{
         font-size: 0.7em;
         margin-left: 1%;
+        padding-bottom: 32px;
 
+    }
+    #sectionHeader{
+        padding-top: 56px;
     }
     .aboutParagraph{
         text-align: center;
-        padding-left: 5%;
-        padding-right: 5%;
+        padding-left: 0;
+        padding-right: 0;
         margin-top: 50px;
+    }
+    .aboutSplit {
+        grid-template-columns: 1fr;
+        gap: 0;
+        padding: 15px 5% 0;
+    }
+    .aboutImageTemplate {
+        display: none;
     }
     #optionalText{
         display: none;

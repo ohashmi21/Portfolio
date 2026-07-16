@@ -1,34 +1,38 @@
 import TProjects from './projects.jsx';
 import TExperience from './experience.jsx';
 import TVolunteer from './volunteer.jsx';
-import React, { useState} from 'react';
+import { useState } from 'react';
 import './styles/homePage.css'
 function App() {
   const [visibleContent, setVisibleContent] = useState('Projects');
-
-  const handleShowProjects = () => {
-    setVisibleContent("Projects")
-  }
-  const handleShowExperience = () => {
-    setVisibleContent("Experience")
-  }
-  const handleShowVolunteer = () => {
-    setVisibleContent("Volunteer")
-  }
+  const tabs = ['Projects', 'Experience', 'Volunteer'];
 
   return(
-    <body>
-      <div>
+      <div className='adminPage'>
+        <header className='adminHeader'>
+          <h1>Portfolio Admin</h1>
+          <p>Manage your public content from one place.</p>
+        </header>
+
         <div className='buttonSelector'>
-          <p onClick={handleShowProjects} className="button">Projects</p>
-          <p onClick={handleShowExperience} className="button">Experience</p>
-          <p onClick={handleShowVolunteer} className="button">Volunteer</p>
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              type="button"
+              onClick={() => setVisibleContent(tab)}
+              className={`button ${visibleContent === tab ? 'active' : ''}`}
+            >
+              {tab}
+            </button>
+          ))}
         </div>
-        {visibleContent==="Projects" && (<div><TProjects></TProjects></div>)}
-        {visibleContent==="Experience" && (<div><TExperience></TExperience></div>)}
-        {visibleContent==="Volunteer" && (<div><TVolunteer></TVolunteer></div>)}
-        </div>
-    </body>
+
+        <section className='contentContainer'>
+          {visibleContent==="Projects" && (<TProjects />)}
+          {visibleContent==="Experience" && (<TExperience />)}
+          {visibleContent==="Volunteer" && (<TVolunteer />)}
+        </section>
+      </div>
   )
 }
 

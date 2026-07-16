@@ -1,7 +1,8 @@
 .experienceContainer{
   text-align: center;
-  margin-bottom: 100px;
-  padding-top: 100px;
+  margin-bottom: 72px;
+  padding-top: 72px;
+  border-top: 1px solid var(--border-color);
 }
 
 .eHeader{
@@ -14,30 +15,21 @@
     justify-content: center;
 }
 
-/* custom.css */
-/* custom.css */
-/* custom.css */
-body {
-  background-color: black !important;
-  color: white !important;
-}
-
 .btn-primary {
-  background-color: black !important;
-  border-color: black !important;
-  color: white !important;
+  background-color: var(--bg-color) !important;
+  border-color: var(--border-color) !important;
+  color: var(--text-color) !important;
 }
 
 .btn-primary:hover {
-  background-color: #333 !important;
-  border-color: #333 !important;
+  opacity: 0.85;
 }
 
 .modal .modal-content {
-  background-color: black !important;
-  color: white !important;
+  background-color: var(--bg-color) !important;
+  color: var(--text-color) !important;
   border-style: solid;
-  border-color: white !important;
+  border-color: var(--border-color) !important;
   border-width: 1px !important;
 }
 
@@ -47,18 +39,18 @@ body {
 }
 
 .modal-title {
-  color: white !important;
+  color: var(--text-color) !important;
 }
 
 .card {
-  background-color: black !important;
-  color: white !important;
-  border-color: #333 !important;
+  background-color: var(--card-bg) !important;
+  color: var(--text-color) !important;
+  border-color: var(--border-color) !important;
 }
 
 .card-title,
 .card-subtitle {
-  color: white !important;
+  color: var(--text-color) !important;
 }
 
 .workContainer {
